@@ -16,6 +16,9 @@ include 'db.php';
 <body>
 <h1>Welcome to the home page</h1>
 <p>
+    <a href="register.php">Register</a>
+</p>
+<p>
     <a href="login.php">Login</a>
 </p>
 </body>
