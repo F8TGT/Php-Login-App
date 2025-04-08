@@ -9,6 +9,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = mysqli_real_escape_string($dbConnection, $_POST['email']);
     $password = mysqli_real_escape_string($dbConnection, $_POST['password']);
     $confirm_password = mysqli_real_escape_string($dbConnection, $_POST['confirm_password']);
+
+    if ($password !== $confirm_password) {
+        $error = "passwords do not match";
+    } else {
+        $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password')";
+        if (mysqli_query($dbConnection, $sql)) {
+            echo "DATA INSERTED";
+        } else {
+            echo "SOMETHING HAPPENED not data inserted, error: ".mysqli_error($dbConnection);
+        }
+    }
 }
 ?>
 
