@@ -13,6 +13,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($password !== $confirm_password) {
         $error = "passwords do not match";
     } else {
+        $sql = "SELECT * FROM users WHERE username = '$username' LIMIT 1";
+        $result = mysqli_query($dbConnection, $sql);
+
+        if (mysqli_num_rows($result) === 1) {
+            $error = "username already exists, please choose another one";
+        }
+
         $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password')";
         if (mysqli_query($dbConnection, $sql)) {
             echo "DATA INSERTED";
@@ -33,6 +40,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Register</title>
 </head>
 <body>
+<h2>Register</h2>
+<?php
+if ($error): ?>
+    <p style="color:red">
+        <?php
+        echo $error; ?>
+    </p>
+<?php
+endif; ?>
+
 <form method="POST" action="">
     <label for="username">Username:</label>
     <input id="username" type="text" name="username" required>
