@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $confirm_password = mysqli_real_escape_string($dbConnection, $_POST['confirm_password']);
 
     if ($password !== $confirm_password) {
-        $error = "passwords do not match";
+        $error = "Passwords do not match";
     } else {
         $sql = "SELECT * FROM users WHERE username = '$username' LIMIT 1";
         $result = mysqli_query($dbConnection, $sql);
@@ -19,12 +19,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (mysqli_num_rows($result) === 1) {
             $error = "username already exists, please choose another one";
         }
+    }
 
-        $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password')";
+    if (empty($error)) {
+        $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+        $sql = "INSERT INTO users (username, password, email) VALUES ('$username', '$passwordHash', '$email')";
+
         if (mysqli_query($dbConnection, $sql)) {
             echo "DATA INSERTED";
         } else {
-            echo "SOMETHING HAPPENED not data inserted, error: ".mysqli_error($dbConnection);
+            $error = "SOMETHING HAPPENED not data inserted, error: ".mysqli_error($dbConnection);
         }
     }
 }
