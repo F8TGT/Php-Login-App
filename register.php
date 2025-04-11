@@ -71,3 +71,7 @@ endif; ?>
 </form>
 </body>
 </html>
+
+<?php
+mysqli_close($dbConnection);
+?>
