@@ -32,18 +32,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
+
+include 'partials/header.php';
+include 'partials/navigation.php';
 ?>
 
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Register</title>
-</head>
-<body>
 <h2>Register</h2>
 <?php
 if ($error): ?>
@@ -69,9 +62,8 @@ endif; ?>
 
     <input type="submit" value="Register">
 </form>
-</body>
-</html>
 
 <?php
+include 'partials/footer.php';
 mysqli_close($dbConnection);
 ?>

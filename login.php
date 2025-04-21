@@ -2,7 +2,6 @@
 
 global $dbConnection;
 include 'dbConnection.php';
-session_start();
 
 if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
     header('Location: admin.php');
@@ -31,18 +30,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error = "User not found";
     }
 }
+
+include 'partials/header.php';
+include 'partials/navigation.php';
 ?>
 
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
-</head>
-<body>
 <h2>Login</h2>
 <?php
 if ($error): ?>
@@ -62,9 +54,8 @@ endif; ?>
 
     <input type="submit" value="Login">
 </form>
-</body>
-</html>
 
 <?php
+include 'partials/footer.php';
 mysqli_close($dbConnection);
 ?>
