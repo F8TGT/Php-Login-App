@@ -3,6 +3,10 @@ body {
     padding-top: 50px;
 }
 
+.container {
+    margin: 10px;
+}
+
 nav {
     background-color: #333;
     position: fixed;

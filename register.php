@@ -1,7 +1,7 @@
 <?php
 
-global $dbConnection;
-include 'dbConnection.php';
+include 'partials/header.php';
+include 'partials/navigation.php';
 $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -32,36 +32,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
-
-include 'partials/header.php';
-include 'partials/navigation.php';
 ?>
 
-<h2>Register</h2>
-<?php
-if ($error): ?>
-    <p style="color:red">
-        <?php
-        echo $error; ?>
-    </p>
-<?php
-endif; ?>
+<div class="container">
+    <h2>Register</h2>
+    <?php
+    if ($error): ?>
+        <p style="color:red">
+            <?php
+            echo $error; ?>
+        </p>
+    <?php
+    endif; ?>
 
-<form method="POST" action="">
-    <label for="username">Username:</label>
-    <input id="username" type="text" name="username" required>
+    <form method="POST" action="">
+        <label for="username">Username:</label>
+        <input id="username" type="text" name="username" required>
 
-    <label for="email">Email:</label>
-    <input id="email" type="email" name="email" required>
+        <label for="email">Email:</label>
+        <input id="email" type="email" name="email" required>
 
-    <label for="password">Password:</label>
-    <input id="password" type="password" name="password" required>
+        <label for="password">Password:</label>
+        <input id="password" type="password" name="password" required>
 
-    <label for="confirm_password">Confirm Password:</label>
-    <input id="confirm_password" type="password" name="confirm_password" required>
+        <label for="confirm_password">Confirm Password:</label>
+        <input id="confirm_password" type="password" name="confirm_password" required>
 
-    <input type="submit" value="Register">
-</form>
+        <input type="submit" value="Register">
+    </form>
+</div>
 
 <?php
 include 'partials/footer.php';

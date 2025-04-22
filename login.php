@@ -1,7 +1,7 @@
 <?php
 
-global $dbConnection;
-include 'dbConnection.php';
+include 'partials/header.php';
+include 'partials/navigation.php';
 
 if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
     header('Location: admin.php');
@@ -30,30 +30,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error = "User not found";
     }
 }
-
-include 'partials/header.php';
-include 'partials/navigation.php';
 ?>
 
-<h2>Login</h2>
-<?php
-if ($error): ?>
-    <p style="color:red">
-        <?php
-        echo $error; ?>
-    </p>
-<?php
-endif; ?>
+<div class="container">
+    <h2>Login</h2>
+    <?php
+    if ($error): ?>
+        <p style="color:red">
+            <?php
+            echo $error; ?>
+        </p>
+    <?php
+    endif; ?>
 
-<form method="POST" action="">
-    <label for="username">Username:</label>
-    <input id="username" type="text" name="username" required>
+    <form method="POST" action="">
+        <label for="username">Username:</label>
+        <input id="username" type="text" name="username" required>
 
-    <label for="password">Password:</label>
-    <input id="password" type="password" name="password" required>
+        <label for="password">Password:</label>
+        <input id="password" type="password" name="password" required>
 
-    <input type="submit" value="Login">
-</form>
+        <input type="submit" value="Login">
+    </form>
+</div>
 
 <?php
 include 'partials/footer.php';
