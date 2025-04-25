@@ -1,6 +1,17 @@
 body {
     margin: 0;
     padding-top: 50px;
+    background-color: #E0F7FA;
+}
+
+body.index{
+
+}
+
+body.register{
+}
+
+body.login{
 }
 
 .container {
