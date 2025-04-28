@@ -44,22 +44,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </p>
     <?php
     endif; ?>
+    <div class="form-container">
+        <form method="POST" action="">
+            <label for="username">Username:</label><br>
+            <input id="username" type="text" name="username" required><br><br>
 
-    <form method="POST" action="">
-        <label for="username">Username:</label>
-        <input id="username" type="text" name="username" required>
+            <label for="email">Email:</label><br>
+            <input id="email" type="email" name="email" required><br><br>
 
-        <label for="email">Email:</label>
-        <input id="email" type="email" name="email" required>
+            <label for="password">Password:</label><br>
+            <input id="password" type="password" name="password" required><br><br>
 
-        <label for="password">Password:</label>
-        <input id="password" type="password" name="password" required>
+            <label for="confirm_password">Confirm Password:</label><br>
+            <input id="confirm_password" type="password" name="confirm_password" required><br><br>
 
-        <label for="confirm_password">Confirm Password:</label>
-        <input id="confirm_password" type="password" name="confirm_password" required>
-
-        <input type="submit" value="Register">
-    </form>
+            <input type="submit" value="Register">
+        </form>
+    </div>
 </div>
 
 <?php

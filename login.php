@@ -33,7 +33,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <div class="container">
-    <h2>Login</h2>
     <?php
     if ($error): ?>
         <p style="color:red">
@@ -43,15 +42,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php
     endif; ?>
 
-    <form method="POST" action="">
-        <label for="username">Username:</label>
-        <input id="username" type="text" name="username" required>
-
-        <label for="password">Password:</label>
-        <input id="password" type="password" name="password" required>
-
-        <input type="submit" value="Login">
-    </form>
+    <div class="form-container">
+        <form method="POST" action="">
+            <label for="username">Username:</label><br>
+            <input id="username" type="text" name="username" required><br><br>
+            <label for="password">Password:</label><br>
+            <input id="password" type="password" name="password" required><br><br>
+            <input type="submit" value="Login">
+        </form>
+    </div>
 </div>
 
 <?php

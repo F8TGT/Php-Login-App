@@ -4,14 +4,18 @@ body {
     background-color: #E0F7FA;
 }
 
-body.index{
-
+body.register, body.login .form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
 }
 
-body.register{
-}
-
-body.login{
+body.register form, body.login form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .container {

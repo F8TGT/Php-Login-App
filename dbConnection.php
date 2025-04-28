@@ -3,7 +3,7 @@
 $dbConnection = mysqli_connect("localhost", "root", "root", "login_app");
 
 if ($dbConnection) {
-    echo "connected";
+//    echo "connected";
 } else {
     echo "not connected".mysqli_error($dbConnection);
 }
