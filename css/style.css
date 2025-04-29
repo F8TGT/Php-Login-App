@@ -8,7 +8,8 @@ body.register, body.login .form-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    height: 100vh;
+    padding: 20px;
 }
 
 body.register form, body.login form {
@@ -16,6 +17,18 @@ body.register form, body.login form {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+}
+
+body.register form input[type="text"], body.register form input[type="email"], body.register form input[type="password"], body.login form input[type="text"], body.login form input[type="email"], body.login form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
 }
 
 .container {
