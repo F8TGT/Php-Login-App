@@ -1,15 +1,26 @@
+/* General Styles */
 body {
     margin: 0;
     padding-top: 50px;
     background-color: #E0F7FA;
 }
 
+
+/* Register and Login Pages */
 body.register, body.login .form-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     padding: 20px;
+}
+
+body.register .form-container h2,
+body.login .form-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
 }
 
 body.register form, body.login form {
@@ -21,7 +32,12 @@ body.register form, body.login form {
     max-width: 400px;
 }
 
-body.register form input[type="text"], body.register form input[type="email"], body.register form input[type="password"], body.login form input[type="text"], body.login form input[type="email"], body.login form input[type="password"] {
+body.register form input[type="text"],
+body.register form input[type="email"],
+body.register form input[type="password"],
+body.login form input[type="text"],
+body.login form input[type="password"]
+{
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
@@ -31,10 +47,40 @@ body.register form input[type="text"], body.register form input[type="email"], b
     font-size: 16px;
 }
 
+body.register form input[type="submit"],
+body.login form input[type="submit"]
+{
+    width: 100%;
+    padding: 14px;
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+body.register form input[type="submit"]:hover,
+body.login form input[type="submit"]:hover
+{
+    background-color: #FF6B6B;
+}
+
+body.register form label,
+body.login form label
+{
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #555;
+}
+
 .container {
     margin: 10px;
 }
 
+/* Navigation */
 nav {
     background-color: #333;
     position: fixed;

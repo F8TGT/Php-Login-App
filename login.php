@@ -44,10 +44,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <div class="form-container">
         <form method="POST" action="">
-            <label for="username">Username:</label><br>
-            <input id="username" type="text" name="username" required><br><br>
-            <label for="password">Password:</label><br>
-            <input id="password" type="password" name="password" required><br><br>
+            <h2>Login</h2>
+            <label for="username">Username:</label>
+            <input id="username" type="text" name="username" required>
+            <label for="password">Password:</label>
+            <input id="password" type="password" name="password" required>
             <input type="submit" value="Login">
         </form>
     </div>

@@ -35,7 +35,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <div class="container">
-    <h2>Register</h2>
     <?php
     if ($error): ?>
         <p style="color:red">
@@ -46,6 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     endif; ?>
     <div class="form-container">
         <form method="POST" action="">
+            <h2>Create your Account</h2>
             <label for="username">Username:</label>
             <input placeholder="Enter your username" id="username" type="text" name="username" required>
 
