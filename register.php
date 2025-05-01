@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $result = mysqli_query($dbConnection, $sql);
 
         if (mysqli_num_rows($result) === 1) {
-            $error = "username already exists, please choose another one";
+            $error = "Username already exists, please choose another one";
         }
     }
 
@@ -26,7 +26,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "INSERT INTO users (username, password, email) VALUES ('$username', '$passwordHash', '$email')";
 
         if (mysqli_query($dbConnection, $sql)) {
-            echo "DATA INSERTED";
+            $_SESSION['logged_in'] = true;
+            $_SESSION['username'] = $username;
+            header('Location: admin.php');
+            exit;
         } else {
             $error = "SOMETHING HAPPENED not data inserted, error: ".mysqli_error($dbConnection);
         }
@@ -35,22 +38,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <div class="container">
-    <?php
-    if ($error): ?>
-        <p style="color:red">
-            <?php
-            echo $error; ?>
-        </p>
-    <?php
-    endif; ?>
     <div class="form-container">
         <form method="POST" action="">
             <h2>Create your Account</h2>
+            <?php
+            if ($error): ?>
+                <p style="color:red">
+                    <?php
+                    echo $error; ?>
+                </p>
+            <?php
+            endif; ?>
             <label for="username">Username:</label>
-            <input placeholder="Enter your username" id="username" type="text" name="username" required>
+            <input value="<?php
+            echo isset($username) ? $username : ''; ?>" placeholder="Enter your username" id="username" type="text"
+                   name="username" required>
 
             <label for="email">Email:</label>
-            <input placeholder="Enter your email" id="email" type="email" name="email" required>
+            <input value="<?php
+            echo isset($email) ? $email : ''; ?>" placeholder="Enter your email" id="email" type="email" name="email" required>
 
             <label for="password">Password:</label>
             <input placeholder="Enter your password" id="password" type="password" name="password" required>
