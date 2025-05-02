@@ -1,10 +1,29 @@
 /* General Styles */
 body {
     margin: 0;
-    padding-top: 50px;
+    padding-top: 20px;
     background-color: #E0F7FA;
 }
 
+/* Index (Home) Page */
+body.index .container {
+    margin: 0;
+}
+
+/* Hero Section */
+body.index .hero {
+    background-color: #282828;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
 
 /* Register and Login Pages */
 body.register, body.login .form-container {
@@ -36,8 +55,7 @@ body.register form input[type="text"],
 body.register form input[type="email"],
 body.register form input[type="password"],
 body.login form input[type="text"],
-body.login form input[type="password"]
-{
+body.login form input[type="password"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
@@ -48,8 +66,7 @@ body.login form input[type="password"]
 }
 
 body.register form input[type="submit"],
-body.login form input[type="submit"]
-{
+body.login form input[type="submit"] {
     width: 100%;
     padding: 14px;
     background-color: #333;
@@ -62,14 +79,12 @@ body.login form input[type="submit"]
 }
 
 body.register form input[type="submit"]:hover,
-body.login form input[type="submit"]:hover
-{
+body.login form input[type="submit"]:hover {
     background-color: #FF6B6B;
 }
 
 body.register form label,
-body.login form label
-{
+body.login form label {
     display: block;
     margin-bottom: 8px;
     font-size: 14px;
