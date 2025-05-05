@@ -25,6 +25,40 @@ body.index .hero {
     z-index: 1;
 }
 
+body.index .hero .hero-content {
+    max-width: 600px;
+    padding: 20px;
+}
+
+body.index .hero .hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+body.index .hero .hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+body.index .hero .hero-content .hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+body.index .hero .hero-content .hero-buttons .btn {
+    padding: 12px 30px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    background-color: #FF6B6B;
+}
+
+body.index .hero .hero-content .hero-buttons .btn:hover {
+    background-color: #FF4B4B;
+}
+
 /* Register and Login Pages */
 body.register, body.login .form-container {
     display: flex;
@@ -59,7 +93,7 @@ body.login form input[type="password"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #CCC;
     border-radius: 5px;
     box-sizing: border-box;
     font-size: 16px;
