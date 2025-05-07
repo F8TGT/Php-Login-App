@@ -13,10 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($password !== $confirm_password) {
         $error = "Passwords do not match";
     } else {
-        $sql = "SELECT * FROM users WHERE username = '$username' LIMIT 1";
-        $result = mysqli_query($dbConnection, $sql);
-
-        if (mysqli_num_rows($result) === 1) {
+        if (user_exists($dbConnection, $username)) {
             $error = "Username already exists, please choose another one";
         }
     }
