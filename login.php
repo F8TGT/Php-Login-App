@@ -3,9 +3,8 @@
 include 'partials/header.php';
 include 'partials/navigation.php';
 
-if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
-    header('Location: admin.php');
-    exit();
+if (is_user_logged_in()) {
+    redirect('admin.php');
 }
 $error = "";
 

@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (mysqli_query($dbConnection, $sql)) {
             $_SESSION['logged_in'] = true;
             $_SESSION['username'] = $username;
-            header('Location: admin.php');
+            redirect('admin.php');
             exit;
         } else {
             $error = "SOMETHING HAPPENED not data inserted, error: ".mysqli_error($dbConnection);
