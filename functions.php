@@ -24,6 +24,9 @@ function user_exists($dbConnection, $username)
 {
     $sql = "SELECT * FROM users WHERE username = '$username' LIMIT 1";
     $result = mysqli_query($dbConnection, $sql);
-
     return mysqli_num_rows($result) > 0;
+}
+
+function full_month_date($date){
+    return  date("F j Y",  strtotime($date));
 }

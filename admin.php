@@ -6,6 +6,8 @@ include 'partials/navigation.php';
 if (!is_user_logged_in()) {
     redirect('login.php');
 }
+
+$result = mysqli_query($dbConnection, "SELECT id, username, email, reg_date FROM users");
 ?>
 
 <nav>
@@ -46,42 +48,37 @@ if (!is_user_logged_in()) {
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>1</td>
-            <td>john_doe</td>
-            <td>john@example.com</td>
-            <td>January 1</td>
-            <td>
-                <form method="POST" style="display:inline-block;">
-                    <input type="hidden" name="user_id" value="1">
-                    <input type="email" name="email" value="john@example.com" required>
-                    <button class="edit" type="submit" name="edit_user">Edit</button>
-                </form>
-                <form method="POST" style="display:inline-block;"
-                      onsubmit="return confirm('Are you sure you want to delete this user?');">
-                    <input type="hidden" name="user_id" value="1">
-                    <button class="delete" type="submit" name="delete_user">Delete</button>
-                </form>
-            </td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>jane_doe</td>
-            <td>jane@example.com</td>
-            <td>February 15</td>
-            <td>
-                <form method="POST" style="display:inline-block;">
-                    <input type="hidden" name="user_id" value="2">
-                    <input type="email" name="email" value="jane@example.com" required>
-                    <button class="edit" type="submit" name="edit_user">Edit</button>
-                </form>
-                <form method="POST" style="display:inline-block;"
-                      onsubmit="return confirm('Are you sure you want to delete this user?');">
-                    <input type="hidden" name="user_id" value="2">
-                    <button class="delete" type="submit" name="delete_user">Delete</button>
-                </form>
-            </td>
-        </tr>
+        <?php
+        while ($user = mysqli_fetch_assoc($result)): ?>
+            <tr>
+                <td><?php
+                    echo $user['id']; ?></td>
+                <td><?php
+                    echo $user['username']; ?></td>
+                <td><?php
+                    echo $user['email']; ?></td>
+                <td><?php
+                    echo full_month_date($user['reg_date']); ?></td>
+                <td>
+                    <form method="POST" style="display:inline-block;">
+                        <input type="hidden" name="user_id" value="<?php
+                        echo $user['id']; ?>">
+                        <input type="text" name="username" value="<?php
+                        echo $user['username']; ?>" required>
+                        <input type="email" name="email" value="<?php
+                        echo $user['email']; ?>" required>
+                        <button class="edit" type="submit" name="edit_user">Edit</button>
+                    </form>
+                    <form method="POST" style="display:inline-block;"
+                          onsubmit="return confirm('Are you sure you want to delete this user?');">
+                        <input type="hidden" name="user_id" value="<?php
+                        echo $user['id']; ?>">
+                        <button class="delete" type="submit" name="delete_user">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        <?php
+        endwhile; ?>
         <!-- Additional user rows can go here -->
         </tbody>
     </table>
