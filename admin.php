@@ -8,6 +8,18 @@ if (!is_user_logged_in()) {
 }
 
 $result = mysqli_query($dbConnection, "SELECT id, username, email, reg_date FROM users");
+
+if ($_SERVER['REQUEST_METHOD'] === "POST") {
+    if (isset($_POST['edit_user'])) {
+        $user_id = mysqli_real_escape_string($dbConnection, $_POST['user_id']);
+        $new_username = mysqli_real_escape_string($dbConnection, $_POST['username']);
+        $new_email = mysqli_real_escape_string($dbConnection, $_POST['email']);
+
+        $sql = "UPDATE users SET email = '$new_email', username = '$new_username' WHERE id = $user_id";
+        $result = mysqli_query($dbConnection, $sql);
+        redirect("admin.php");
+    }
+}
 ?>
 
 <nav>
