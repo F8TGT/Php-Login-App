@@ -17,7 +17,12 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
         $sql = "UPDATE users SET email = '$new_email', username = '$new_username' WHERE id = $user_id";
         $result = mysqli_query($dbConnection, $sql);
-        redirect("admin.php");
+        $query_status = check_query($result);
+        if ($query_status === true) {
+            $_SESSION['message'] = "User updated successfully to {$new_username}";
+            $_SESSION['msg_type'] = "success";
+            redirect("admin.php");
+        }
     }
 }
 ?>

@@ -48,12 +48,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             endif; ?>
             <label for="username">Username:</label>
             <input value="<?php
-            echo isset($username) ? $username : ''; ?>" placeholder="Enter your username" id="username" type="text"
+            echo $username ?? ''; ?>" placeholder="Enter your username" id="username" type="text"
                    name="username" required>
 
             <label for="email">Email:</label>
             <input value="<?php
-            echo isset($email) ? $email : ''; ?>" placeholder="Enter your email" id="email" type="email" name="email" required>
+            echo $email ?? ''; ?>" placeholder="Enter your email" id="email" type="email" name="email" required>
 
             <label for="password">Password:</label>
             <input placeholder="Enter your password" id="password" type="password" name="password" required>
@@ -61,7 +61,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label for="confirm_password">Confirm Password:</label>
             <input placeholder="Confirm your password" id="confirm_password" type="password" name="confirm_password"
                    required>
-
             <input type="submit" value="Register">
         </form>
     </div>

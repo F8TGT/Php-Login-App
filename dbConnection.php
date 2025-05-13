@@ -7,3 +7,12 @@ if ($dbConnection) {
 } else {
     echo "not connected".mysqli_error($dbConnection);
 }
+
+function check_query($result): true|string
+{
+    global $dbConnection;
+    if (!$result) {
+        return "Error".mysqli_error($dbConnection);
+    }
+    return true;
+}
