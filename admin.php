@@ -23,6 +23,16 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $_SESSION['msg_type'] = "success";
             redirect("admin.php");
         }
+    } elseif (isset($_POST['delete_user'])) {
+        $user_id = mysqli_real_escape_string($dbConnection, $_POST['user_id']);
+        $sql = "DELETE FROM users WHERE id = $user_id";
+        $result = mysqli_query($dbConnection, $sql);
+        $query_status = check_query($result);
+        if ($query_status === true) {
+            $_SESSION['message'] = "User deleted successfully record with ID:{$user_id}";
+            $_SESSION['msg_type'] = "success";
+            redirect("admin.php");
+        }
     }
 }
 ?>
