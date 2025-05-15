@@ -37,32 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 }
 ?>
 
-<nav>
-    <ul>
-        <li>
-            <a href="index.php">Home</a>
-        </li>
-
-        <!-- When the user is logged in -->
-        <li>
-            <a href="admin.php">Admin</a>
-        </li>
-        <li>
-            <a href="logout.php">Logout</a>
-        </li>
-
-        <!-- When the user is not logged in -->
-        <li>
-            <a href="register.php">Register</a>
-        </li>
-        <li>
-            <a href="login.php">Login</a>
-        </li>
-    </ul>
-</nav>
-
 <h1>Manage Users</h1>
-
 <div class="container">
     <table class="user-table">
         <thead>
