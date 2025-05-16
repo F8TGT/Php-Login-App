@@ -39,6 +39,18 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
 <h1>Manage Users</h1>
 <div class="container">
+    <?php
+    if (isset($_SESSION['message'])): ?>
+        <div class="notification <?php
+        echo $_SESSION['msg_type']; ?>">
+            <?php
+            echo $_SESSION['message'];
+            unset($_SESSION['message']);
+            unset($_SESSION['msg_type']);
+            ?>
+        </div>
+    <?php
+    endif; ?>
     <table class="user-table">
         <thead>
         <tr>
@@ -90,3 +102,4 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 <?php
 include 'partials/footer.php';
 ?>
+
