@@ -1,11 +1,14 @@
 <?php
 
-$dbConnection = mysqli_connect("localhost", "root", "root", "login_app");
+$host = "localhost";
+$username = "root";
+$password = "root";
+$database = "login_app";
 
-if ($dbConnection) {
-//    echo "connected";
-} else {
-    echo "not connected".mysqli_error($dbConnection);
+$dbConnection = mysqli_connect($host, $username, $password, $database);
+
+if (!$dbConnection) {
+    die("Connection failed: ".mysqli_connect_error());
 }
 
 function check_query($result): true|string

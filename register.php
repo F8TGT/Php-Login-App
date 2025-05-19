@@ -4,6 +4,10 @@ include 'partials/header.php';
 include 'partials/navigation.php';
 $error = "";
 
+if (is_user_logged_in()) {
+    redirect('admin.php');
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = mysqli_real_escape_string($dbConnection, $_POST['username']);
     $email = mysqli_real_escape_string($dbConnection, $_POST['email']);
