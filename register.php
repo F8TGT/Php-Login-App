@@ -23,10 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (empty($error)) {
-        $passwordHash = password_hash($password, PASSWORD_DEFAULT);
-        $sql = "INSERT INTO users (username, password, email) VALUES ('$username', '$passwordHash', '$email')";
-
-        if (mysqli_query($dbConnection, $sql)) {
+        if (check_query($dbConnection, create_user($dbConnection, $username, $email, $password))) {
             $_SESSION['logged_in'] = true;
             $_SESSION['username'] = $username;
             redirect('admin.php');
