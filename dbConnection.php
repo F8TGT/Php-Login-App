@@ -32,3 +32,15 @@ function create_user($dbConnection, $username, $email, $password): mysqli_result
     $sql = "INSERT INTO users (username, password, email) VALUES ('$username', '$passwordHash', '$email')";
     return mysqli_query($dbConnection, $sql);
 }
+
+function update_user($dbConnection, $user_id, $new_username, $new_email): mysqli_result|bool
+{
+    $sql = "UPDATE users SET email = '$new_email', username = '$new_username' WHERE id = $user_id";
+    return mysqli_query($dbConnection, $sql);
+}
+
+function delete_user($dbConnection, $user_id): mysqli_result|bool
+{
+    $sql = "DELETE FROM users WHERE id = $user_id";
+    return mysqli_query($dbConnection, $sql);
+}
